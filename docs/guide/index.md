@@ -9,10 +9,13 @@
 ```
 
 ### `kux-router-link`
+
 该组件方便开发者们直接在 `HTML 标签` 中进行导航跳转，路由实例的所有导航守卫对该组件都生效。
-> [!WARNING] 提示
-> 
-> 需要单独下载 [kux-router-link](https://ext.dcloud.net.cn/plugin?id=17593) 组件方可正常使用。
+
+::: warning 提示
+需要单独下载 [kux-router-link](https://ext.dcloud.net.cn/plugin?id=17593) 组件方可正常使用。
+:::
+
 ## JavaScript API
 由于新版的底层全面重构，所以在初始化的时候自动做了 `pages.json` 路由映射，会在项目根目录自动生成 `pagesJsonRouter.uts` 文件，方便创建路由实例时自动根据该映射配置创建 `routes` 路由池。具体操作如下：
 + 项目根目录创建 `router.uts` 文件
@@ -116,9 +119,9 @@ export function createApp() {
         routes: routes
     } as RouterOptions);
     // 组合式API建议通过如下方式挂载
-    app.provide('router', router);
+    // app.provide('router', router);
     // 选项式API可以通过如下方式挂载
-    // app.config.globalProperties.router = router;
+    app.config.globalProperties.router = router;
     return {
         app
     }
@@ -127,4 +130,25 @@ export function createApp() {
 
 :::
 
-全局挂载后我们可以通过 `this.$router` 的形式使用路由实例，并且以 `this.$router.current` 的形式访问当前路由
+全局挂载后我们可以通过 `this.$router` 的形式使用路由实例，并且以 `this.$router.currentRoute` 的形式访问当前路由：
+
+```ts
+// Home.uvue
+export default {
+  onReady() {
+      // 打印当前路由信息
+      console.log(this.$router.current);
+  },
+  methods: {
+    goToDashboard() {
+      if (isAuthenticated) {
+        this.$router.push('/dashboard')
+      } else {
+        this.$router.push('/login')
+      }
+    },
+  },
+}
+```
+
+要在 `setup` 函数中访问路由，请使用 `useRouter` 或者 `useRoute` 函数。可以前往 [组合式 API](/guide/advanced/composition-api#在-setup-中访问路由和当前路由)。
