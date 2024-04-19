@@ -16,7 +16,7 @@ export default defineConfig({
     logo: '/logo.jpg',
 
     sidebar: {
-      '/guide/': [
+      '/': [
         {
           text: '介绍',
           link: '/introduction'
