@@ -1,0 +1,1 @@
+import{_ as s,c as i,o as a,a5 as n}from"./chunks/framework.fnDmWd_6.js";const c=JSON.parse('{"title":"入门","description":"","frontmatter":{},"headers":[],"relativePath":"guide/index.md","filePath":"guide/index.md"}'),h={name:"guide/index.md"},p=n("",14),k=[p];function l(t,e,E,r,d,g){return a(),i("div",null,k)}const o=s(h,[["render",l]]);export{c as __pageData,o as default};
