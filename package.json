@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs",
+    "docs:publish": "/Applications/HbuilderX-Alpha.app/Contents/MacOS/cli hosting deploy --provider aliyun --space kux-router-doc --source /Users/yunlailuo/work/kux/kux-router-doc/docs/.vitepress/dist/ --prefix /"
   },
   "keywords": [],
   "author": "",

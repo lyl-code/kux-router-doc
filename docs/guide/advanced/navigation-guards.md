@@ -30,11 +30,11 @@ router.beforeEach(async (to, from): Promise<any | null> => {
 可以返回如下参数值：
 
 + `false`: 取消当前的导航。
-+ 一个 [路由地址](): 通过一个路由地址重定向到一个不同的地址，如同调用 `router.push()`。
-+ 一个 [路由对象](): 通过传入对象参数同样可以重定向到一个不同的路由地址，正如上面示例代码那样。
++ 一个 [路由地址](/api/interfaces/RouteRecordPath): 通过一个路由地址重定向到一个不同的地址，如同调用 `router.push()`。
++ 一个 [路由对象](/api/interfaces/RouteRecordNormalized): 通过传入对象参数同样可以重定向到一个不同的路由地址，正如上面示例代码那样。
 + `null`: 如果不需要拦截导航，可以直接返回 `null`。
 
-如果遇到了导航失败的情况，路由实例可能会抛出一个 `Error`。这将会取消导航，并且调用 [`router.onError()`]() 注册过的回调函数。你可以在该回调里面获取导航失败的信息。
+如果遇到了导航失败的情况，路由实例可能会抛出一个 `Error`。这将会取消导航，并且调用 [`router.onError()`](/api/interfaces/IRouter#onerror) 注册过的回调函数。你可以在该回调里面获取导航失败的信息。
 
 ::: info 提示
 

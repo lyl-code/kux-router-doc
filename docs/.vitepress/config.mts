@@ -6,11 +6,29 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "kux-router",
   description: "`kux-router` 是一个参考 `vue-router` 的api设计实现的 `uts` 路由库，支持 `vue-router` 的绝大数功能特色。",
+  ignoreDeadLinks: true,
+  metaChunk: true,
+  head: [
+      ['link', {
+        rel: 'icon',
+        href: '/logo.jpg',
+        type: 'image/jpeg'
+      }]
+  ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '教程', link: '/guide/' },
-      { text: 'API参考', link: '/api/' }
+      { text: 'API参考', link: '/api/' },
+      {
+        text: 'v1.1.x',
+        items: [
+          {
+            text: '更新日志',
+            link: 'https://gitcode.com/kviewui/kux-router/releases'
+          }
+        ]
+      }
     ],
 
     logo: '/logo.jpg',
@@ -109,7 +127,7 @@ export default defineConfig({
     },
 
     outline: {
-      level: [2, 4],
+      level: [2, 3],
       label: '页面导航'
     },
 

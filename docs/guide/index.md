@@ -151,4 +151,4 @@ export default {
 }
 ```
 
-要在 `setup` 函数中访问路由，请使用 `useRouter` 或者 `useRoute` 函数。可以前往 [组合式 API](/guide/advanced/composition-api#在-setup-中访问路由和当前路由)。
+要在 `setup` 函数中访问路由，请使用 [`useRouter`](/api/#userouter) 或者 [`useRoute`](/api/#useroute) 函数。可以前往 [组合式 API](/guide/advanced/composition-api#在-setup-中访问路由和当前路由)。

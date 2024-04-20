@@ -2,7 +2,7 @@
 
 ## 在 `setup` 中访问路由实例和当前路由
 
-因为我们无法在 `setup` 里面访问 `this`，所以我们不能直接访问 `this.$router` 。作为替代，路由库提供了 `useRouter` 和 `useRoute` 函数：
+因为我们无法在 `setup` 里面访问 `this`，所以我们不能直接访问 `this.$router` 。作为替代，路由库提供了 [`useRouter`](/api/#userouter) 和 [`useRoute`](/api/#useroute) 函数：
 
 ```ts
 import { useRouter, useRoute } from '@/uni_modules/kux-router';

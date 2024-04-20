@@ -1,0 +1,1 @@
+import{_ as e,c as a,o as t,a5 as r}from"./chunks/framework.fnDmWd_6.js";const m=JSON.parse('{"title":"API 文档","description":"","frontmatter":{},"headers":[],"relativePath":"api/index.md","filePath":"api/index.md"}'),o={name:"api/index.md"},i=r("",25),l=[i];function h(d,u,n,c,s,f){return t(),a("div",null,l)}const p=e(o,[["render",h]]);export{m as __pageData,p as default};

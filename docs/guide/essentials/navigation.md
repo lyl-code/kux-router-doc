@@ -32,10 +32,10 @@
 
 ###### 该方法有一个参数，参数类型支持多种，具体类型说明如下：
 
-| 类型名                       | 默认值 | 说明                                    |
-|---------------------------|-----|---------------------------------------|
-| [RouteRecordPath]()       | -   | 路由地址，该类型会在重新编译的时候根据 `pages.json` 自动更新 |
-| [RouteRecordNormalized]() | -   | 创建路由表时的路由配置信息                         |
+| 类型名                                                | 默认值 | 说明                                    |
+|----------------------------------------------------|-----|---------------------------------------|
+| [RouteRecordPath](/api/interfaces/RouteRecordPath) | -   | 路由地址，该类型会在重新编译的时候根据 `pages.json` 自动更新 |
+| [RouteRecordNormalized](/api/interfaces/RouteRecordNormalized)          | -   | 创建路由表时的路由配置信息                         |
 
 ::: tip 说明
 
@@ -100,6 +100,6 @@ router.back(3);
 
 ::: danger 注意
 
-上面所有示例代码用到了 `RouteRecordNormalized` 自定义类型，需要手动从路由库中手动导入该类型。
+上面所有示例代码用到了 [`RouteRecordNormalized`](/api/interfaces/RouteRecordNormalized) 自定义类型，需要手动从路由库中手动导入该类型。
 
 :::

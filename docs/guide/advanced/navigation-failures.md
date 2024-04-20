@@ -38,7 +38,7 @@ router.afterEach((to, from, failure) => {
 
 ## 鉴别导航故障
 
-等待导航完成后，可以通过返回值是否为 `null` 以及是否为 `NavigationFailure` 类型来判断导航是否失败：
+等待导航完成后，可以通过返回值是否为 `null` 以及是否为 [`NavigationFailure`](/api/interfaces/NavigationFailure) 类型来判断导航是否失败：
 
 ```ts
 import { NavigationFailure } from '@/uni_modules/kux-router';
@@ -54,10 +54,10 @@ if (failure != null && failure instanceof NavigationFailure) {
 
 ## 导航故障的属性
 
-当导航失败时实例方法就会返回一个 [NavigationFailure]()，该对象会返回以下三个参数：
+当导航失败时实例方法就会返回一个 [NavigationFailure](/api/interfaces/NavigationFailure)，该对象会返回以下三个参数：
 
-+ `from`: 当前路由信息。一个 [规范化路由信息]()
-+ `to`: 即将前往的路由信息。一个 [规范化路由信息]()
++ `from`: 当前路由信息。一个 [规范化路由信息](/api/interfaces/RouteLocationNormalizedLoaded)。
++ `to`: 即将前往的路由信息。一个 [规范化路由信息](/api/interfaces/RouteLocationNormalizedLoaded)。
 + `type`: 导航失败类型。
   + `aborted`: 被中止，比如路由守卫中手动返回了 `false`。
   + `cancelled`: 被取消，比如下一个导航已经开始而导航失败。
