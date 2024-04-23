@@ -104,6 +104,8 @@ pages.map((item) => {
             } as RouteRecordNormalized);
     }
 });
+
+export default routes;
 ```
 ```ts [main.uts]
 import App from './App.uvue'
