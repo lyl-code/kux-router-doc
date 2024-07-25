@@ -1,0 +1,17 @@
+:root {
+    --timeline-text: #333;
+    --timeline-text-secondary: #666;
+}
+
+.timeline-dot p, ul>li {
+    color: var(--timeline-text);
+}
+
+.timeline-dot li>ul {
+    color: var(--timeline-text-secondary);
+}
+
+html.dark {
+    --timeline-text: rgba(255, 255, 255, 0.8);
+    --timeline-text-secondary: rgba(255, 255, 255, 0.5);
+}

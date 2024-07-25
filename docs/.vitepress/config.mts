@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import timeline from 'vitepress-markdown-timeline'
 
 // https://vitepress.dev/reference/site-config
 // @ts-ignore
@@ -8,6 +9,11 @@ export default defineConfig({
   description: "`kux-router` 是一个参考 `vue-router` 的api设计实现的 `uts` 路由库，支持 `vue-router` 的绝大数功能特色。",
   ignoreDeadLinks: true,
   metaChunk: true,
+  markdown: {
+    config: md => {
+      md.use(timeline)
+    }
+  },
   head: [
       ['link', {
         rel: 'icon',
@@ -25,7 +31,7 @@ export default defineConfig({
         items: [
           {
             text: '更新日志',
-            link: 'https://gitcode.com/kviewui/kux-router/releases'
+            link: '/changelog'
           },
           {
             text: 'uniapp插件市场地址',
@@ -98,6 +104,14 @@ export default defineConfig({
             {
               text: '导航故障',
               link: '/guide/advanced/navigation-failures'
+            },
+            {
+              text: 'uni全局挂载',
+              link: '/guide/advanced/uni-ext'
+            },
+            {
+              text: '更新日志',
+              link: '/changelog'
             }
           ]
         }

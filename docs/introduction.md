@@ -8,10 +8,12 @@
 + 支持异步拦截守卫。
 + 支持组件式用法，需下载 [kux-router-link](https://ext.dcloud.net.cn/plugin?id=17593)。
 + 自动生成 `pages.json` 路由配置映射。
++ 支持 [uni ext api](https://uniapp.dcloud.net.cn/api/extapi.html)用法。【需升级插件到v1.1.5或以上版本】
 + ...其他更多优秀的工具方法。
 
 :::danger 注意
 + 由于 [uts](https://doc.dcloud.net.cn/uni-app-x/uts/) 为强类型语言，所以涉及自定义传参的都要手动指定类型，所有参数类型都已经导出，开发者直接根据提示直接导入使用即可。
 + `v1.1.0`  为全新重构的版本，旧版本升级时请仔细查看版本更新日志，升级过程有什么问题可以进群交流：[870628986](https://qm.qq.com/q/lJOzzu6UEw)
++ `v1.1.5` 及以上版本开始支持 `uni` 全局挂载方式。[参考 `uni` 全局挂载](guide/advanced/uni-ext)
 :::
 
