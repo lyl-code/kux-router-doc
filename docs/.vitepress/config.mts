@@ -110,6 +110,10 @@ export default defineConfig({
               link: '/guide/advanced/uni-ext'
             },
             {
+              text: 'uni路由映射',
+              link: '/guide/advanced/uni-router-map'
+            },
+            {
               text: '更新日志',
               link: '/changelog'
             }

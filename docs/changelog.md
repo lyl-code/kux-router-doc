@@ -2,6 +2,84 @@
 
 <br/>
 
+::: timeline 1.1.6 (2024-07-30)
++ `pagesJsonRouter` 页面映射优化底层实现，调整为自动跟随 `pages.json` 变化同步，不再需要重新编译。
++ `pagesJsonRouter` 已支持 `pages.json` 的全部内容和类型映射，新增 `hasTabBar`、`hasTopWindow`、`hasLeftWindow`、`hasRightWindow`、`hasCondition`、`hasEasycom`、`hasUniIdRouter` 的导出，用来判断 `pages.json` 是否设置了 `tabBar`、`topWindow`、`leftWindow`、`rightWindow`、`condition`、`easycom` 和 `uniIdRouter` 等属性。
++ `pagesJsonRouter` 新增导出 `tabBar`、`topWindow`、`leftWindow`、`rightWindow`、`condition`、`easycom`、`uniIdRouter` 变量，用来获取 `pages.json` 中设置的属性值。
++ `pagesJsonRouter` 新增导出 `pages.json` 的属性类型定义，以此来帮助开发者更好地编写 `pages.json` 的类型定义。
++ `pagesJsonPlugin` vite插件定义调整为函数形式，并且函数参数新增 `pagesJsonMappingFile` 和 `routerFile`，具体说明如下：
+  + pagesJsonMappingFile：`pages.json` 映射文件路径，默认值为 `pagesJsonRouter.uts`。自定义目录时不能以 `.` 开头，否则会影响 `router` 中模块的自动导入。具体示例可以参考下面的示例代码。
+  + routerFile：`router` 文件路径，默认值为 `./router.uts`。
+  > [!WARNING] 注意
+  > + 如果自定义了 `routerFile` 路径，则需要在 `main.uts` 中同步调整原来 `router` 的导入路径。
+
+```ts
+import { defineConfig } from 'vite';
+import uni from "@dcloudio/vite-plugin-uni";
+import generateUniext from './uni_modules/kux-router/vite/vite-plugin-generate-uniext'
+import pagesJsonPlugin from './uni_modules/kux-router/vite/vite-plugin-kux-pages-json';
+
+export default defineConfig({
+  plugins: [
+    generateUniext,
+    uni(),
+    pagesJsonPlugin, // [!code --]     
+    pagesJsonPlugin({ // [!code ++]
+      pagesJsonMappingFile: 'router/pages.uts', // [!code ++]
+      routerFile: 'router/router.uts' // [!code ++]
+    }), // [!code ++]
+  ]
+})
+```
++ `pagesJsonPlugin` 新增自动生成默认的 `router.uts` 路由管理文件，该文件不存在时会自动生成。默认内容如下：
+  ```ts
+  /**
+  * 路由注册文件，编译时如果该文件不存在会由插件自动生成
+  * @author kux <kviewui@163.com>
+  * @created 2024-07-30 16:07:00
+  * @version 1.1.6
+  * @copyright Copyright (c) 2024 The Authors.
+  * @license MIT License
+  * Permission is hereby granted, free of charge, to any person obtaining a copy
+  * of this software and associated documentation files (the "Software"), to deal
+  * in the Software without restriction, including without limitation the rights
+  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  * copies of the Software, and to permit persons to whom the Software is
+  * furnished to do so, subject to the following conditions:
+
+  * The above copyright notice and this permission notice shall be included in all
+  * copies or substantial portions of the Software.
+
+  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  * SOFTWARE.
+  */
+
+  import { pages } from '@/router/pages.uts';
+  import { RouteRecordNormalized } from '@/uni_modules/kux-router/utssdk/interface';
+
+  let routes: RouteRecordNormalized[] = [];
+  pages.map((item) => {
+    // 演示拦截，请根据自己的实际业务逻辑和item内容实现，此处仅作为默认的演示参考
+    if (item.needLogin) {
+      // 这里是自己的拦截逻辑
+    } else {
+      routes.push({
+          path: item.path,
+          name: item.name
+      } as RouteRecordNormalized)
+    }
+  });
+
+  export default routes;
+  ```
++ 优化其他已知问题。
+:::
+
 ::: timeline 1.1.5 (2024-07-25)
 + 修复全局导航守卫 `beforeEach` 部分场景会重复跳转的问题。
 + 新增 `uni` 全局挂载支持，实现如下：
