@@ -17,7 +17,7 @@
 :::
 
 ## JavaScript API
-由于新版的底层全面重构，所以在初始化的时候自动做了 `pages.json` 路由映射，会在项目根目录自动生成 `pagesJsonRouter.uts` 文件，方便创建路由实例时自动根据该映射配置创建 `routes` 路由池。具体操作如下：
+由于新版的底层全面重构，所以在初始化的时候自动做了 `pages.json` [路由映射](/guide/advanced/uni-router-map)，会在项目根目录自动生成 `pagesJsonRouter.uts` 文件，方便创建路由实例时自动根据该映射配置创建 `routes` 路由池。具体操作如下：
 + 项目根目录创建 `router.uts` 文件
 + 项目根目录的 `main.uts` 全局挂载
 
