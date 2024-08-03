@@ -116,6 +116,10 @@ export default defineConfig({
             {
               text: '更新日志',
               link: '/changelog'
+            },
+            {
+              text: '术语说明',
+              link: '/guide/advanced/glossary'
             }
           ]
         }

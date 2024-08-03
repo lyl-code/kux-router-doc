@@ -2,6 +2,21 @@
 
 <br/>
 
+::: timeline 1.1.9 (2024-08-03)
++ 修复因自定义 `pagesJsonMappingFile` 导致插件内部 `interface` 因类型导入硬编码导致编译失败的问题。
++ 插件 `interface` 调整为自动生成，可以根据用户注册配置自动调整类型定义。为后续用户自定义类型注册提供便利。
++ 优化其他已知问题。
+:::
+
+::: timeline 1.1.8 (2024-08-02)
++ 修复 `pagesJsonRouter` 自动生成 `easycom` 变量错误的问题。
++ 优化 `pagesJsonRouter` 自动生成内容的换行格式。
+:::
+
+::: timeline 1.1.7 (2024-08-01)
++ 修复自定义目录无法自动创建的问题。
+:::
+
 ::: timeline 1.1.6 (2024-07-30)
 + `pagesJsonRouter` 页面映射优化底层实现，调整为自动跟随 `pages.json` 变化同步，不再需要重新编译。
 + `pagesJsonRouter` 已支持 `pages.json` 的全部内容和类型映射，新增 `hasTabBar`、`hasTopWindow`、`hasLeftWindow`、`hasRightWindow`、`hasCondition`、`hasEasycom`、`hasUniIdRouter` 的导出，用来判断 `pages.json` 是否设置了 `tabBar`、`topWindow`、`leftWindow`、`rightWindow`、`condition`、`easycom` 和 `uniIdRouter` 等属性。

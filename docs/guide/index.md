@@ -130,6 +130,10 @@ export function createApp() {
 }
 ```
 
+::: tip 提示
++ `v1.1.6` 版本开始，支持自定义路由映射生成文件，可以自定义生成的文件地址，默认在项目根目录生成 `pagesJsonRouter.uts` 文件。
++ `v1.1.6` 版本开始，支持定义路由管理文件，可以自定义路由管理文件地址，默认在项目根目录生成 `router.uts` 文件。
++ 可查看 [pagesJsonPlugin 说明](/installation#pagesjsonplugin-说明) 了解更多关于 自定义路由映射生成文件以及自定义路由管理文件的配置。
 :::
 
 全局挂载后我们可以通过 `this.$router` 的形式使用路由实例，并且以 `this.$router.currentRoute` 的形式访问当前路由：
