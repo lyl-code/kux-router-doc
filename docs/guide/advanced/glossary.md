@@ -14,8 +14,8 @@
 
 路由参数分为 2 种：
 
-- 查询参数：`?key=value` 形式的 URL 参数，可参考 [query 参数获取](/guide/advanced/data-fetching)。
-- 隐式参数：通过路由 `data` 配置项传入的动态参数，可参考 [data 参数获取](/guide/advanced/data-fetching)。
+- 查询参数：`?key=value` 形式的 URL 参数，可参考 [query 参数获取](/guide/advanced/data-fetching#query参数获取)。
+- 隐式参数：通过路由 `data` 配置项传入的动态参数，可参考 [data 参数获取](/guide/advanced/data-fetching#data参数获取)。
 
 ## 路由元信息
 
