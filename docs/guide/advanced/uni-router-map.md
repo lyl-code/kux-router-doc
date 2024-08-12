@@ -6,7 +6,7 @@
 ```ts
 import { defineConfig } from 'vite';
 import uni from "@dcloudio/vite-plugin-uni";
-import pagesJsonPlugin from './uni_modules/kux-router/vite/vite-plugin-kux-pages-json.ts';
+import pagesJsonPlugin from './uni_modules/kux-router/vite/vite-plugin-kux-pages-json.ts'; // [!code ++]
 
 export  default  defineConfig({
     plugins: [
