@@ -27,7 +27,7 @@ export default defineConfig({
       { text: '教程', link: '/guide/' },
       { text: 'API参考', link: '/api/' },
       {
-        text: 'v1.1.x',
+        text: 'v1.2.x',
         items: [
           {
             text: '更新日志',

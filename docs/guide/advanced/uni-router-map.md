@@ -6,20 +6,23 @@
 ```ts
 import { defineConfig } from 'vite';
 import uni from "@dcloudio/vite-plugin-uni";
-import pagesJsonPlugin from './uni_modules/kux-router/vite/vite-plugin-kux-pages-json.ts'; // [!code ++]
+import autopages from './uni_modules/kux-autopages/src/vite'; // [!code ++]
 
 export  default  defineConfig({
     plugins: [
         uni(),
-        pagesJsonPlugin({ // [!code ++]
+        autopages({ // [!code ++]
             pagesJsonMappingFile: 'router/pages.uts', // 路由映射文件路径，自定义目录时不要以 `./` 开头  // [!code ++]
             routerFile: 'router/router.uts', // 路由管理文件路径 // [!code ++]
         }) // [!code ++]
     ]
 })
 ```
+::: warning 注意
++ autopages 插件需要在插件市场下载插件使用。[点击前往下载](https://ext.dcloud.net.cn/plugin?id=19799)
+:::
 
-### pagesJsonPlugin 配置项
+### autopages 配置项
 
 + `pagesJsonMappingFile`： 路由映射文件路径，自定义目录时不要以 `./` 开头，否则会影响 `router` 自动生成时模块的导入。
 + `routerFile`： 路由管理文件路径。

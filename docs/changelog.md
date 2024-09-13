@@ -2,6 +2,58 @@
 
 <br/>
 
+::: timeline 1.2.0 (2024-09-13)
++ 修复同一路由多次跳转时，路由参数未更新的问题。
++ `createRouter` 方法新增 `useAddInterceptor` 原生拦截器配置参数，用来支持 [uni原生页面跳转](https://doc.dcloud.net.cn/uni-app-x/api/navigator.html) 跳转的拦截兼容。具体参数说明如下：
+  + switchTab：是否监听拦截 `switchTab` 跳转，默认值为 `false`。
+  + navigateTo：是否监听拦截 `navigateTo` 跳转，默认值为 `false`。
+  + redirectTo：是否监听拦截 `redirectTo` 跳转，默认值为 `false`。
+  + 示例代码如下：
+
+  ```ts
+  import { createRouter } from 'kux-router'
+
+  const router = createRouter({
+    //...
+    useAddInterceptor: {
+      switchTab: true,
+      navigateTo: true,
+      redirectTo: true
+    }
+  })
+  ```
+
+  > [!WARNING] 注意
+  > + 该功能属于实验性功能，可能存在兼容性问题。如遇到问题，请及时反馈给我们。
++ web环境新增支持浏览器输入网址后的拦截跳转。原理是监听 `popstate` 变化，如果发生跳转，则触发 `router.replace` 方法。
++ 内部vite插件优化调整，具体如下：
+  + 原来的 `vite-plugin-kux-pages-json` 改名为 `vite-plugin-kux-gen` 。
+  + 新增绑定 [kux-autopage](https://ext.dcloud.net.cn/plugin?id=19799) 插件，用来做 `pages.json` 类型映射。原来 `vite-plugin-kux-pages-json` 对应的生成逻辑由 `kux-autopages` 完成。
+  + 调整后的 `vite.config` 配置如下：
+
+  ```ts
+  import { defineConfig } from 'vite';
+  import uni from "@dcloudio/vite-plugin-uni";
+  import generateUniext from './uni_modules/kux-router/vite/vite-plugin-generate-uniext'
+  import autopages from './uni_modules/kux-autopages/src/vite'
+  import kuxgen from './uni_modules/kux-router/vite/vite-plugin-kux-gen';
+
+  export default defineConfig({
+      plugins: [
+          generateUniext, // 该配置为可选项，主要是为了使用uni.xxx的语法
+          uni(),
+          autopages({
+              pagesJsonMappingFile: 'router2/pages.uts', // 该参数未配置时，默认在项目根目录下生成 `pages.interface.uts`
+          }),
+          kuxgen({
+              pagesJsonMappingFile: 'router2/pages.uts', // 该参数同上
+              routerFile: 'router2/router.uts' // 该参数未配置时，默认在项目根目录下生成 `router.uts`
+          })
+      ],
+  })
+  ```
+:::
+
 ::: timeline 1.1.12 (2024-08-06)
 + 修复导航守卫因返回 `false` 取消导航插件锁定全局导航导致导航方法全都失效的问题。
 + 优化其他已知问题。
