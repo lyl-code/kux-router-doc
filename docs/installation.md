@@ -11,7 +11,7 @@
 ```ts
 import { defineConfig } from 'vite';
 import uni from "@dcloudio/vite-plugin-uni";
-import autopages from './uni_modules/kux-autopages/src/vite'; // [!code ++]
+import autopages from './uni_modules/kux-autopages'; // [!code ++]
 import kuxgen from './uni_modules/kux-router/vite/vite-plugin-kux-gen'; // [!code ++]
 
 export default defineConfig({

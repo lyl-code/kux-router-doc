@@ -35,7 +35,7 @@
   import { defineConfig } from 'vite';
   import uni from "@dcloudio/vite-plugin-uni";
   import generateUniext from './uni_modules/kux-router/vite/vite-plugin-generate-uniext'
-  import autopages from './uni_modules/kux-autopages/src/vite'
+  import autopages from './uni_modules/kux-autopages'
   import kuxgen from './uni_modules/kux-router/vite/vite-plugin-kux-gen';
 
   export default defineConfig({
