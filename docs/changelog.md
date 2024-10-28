@@ -7,6 +7,7 @@
 + 修复因使用 [uni全局挂载](/guide/advanced/uni-ext.html) 导致无法云打包的问题。
 + 修复因使用 [uni全局挂载](/guide/advanced/uni-ext.html) 导致编译 `web` 反复热刷新的问题。
 + 修复因首次使用 [uni全局挂载](/guide/advanced/uni-ext.html) 需要编译两次的问题。
+  + 注意：如果项目 `uni_modules` 目录下存在 `uni-kuxrouter` 目录，请删除后重新编译。
 + 优化其他已知问题。
 :::
 
