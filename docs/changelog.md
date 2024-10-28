@@ -2,6 +2,19 @@
 
 <br/>
 
+::: timeline 1.2.2 (2024-10-28)
++ 修复 `4.31编译器` 编译失败问题。
++ 修复因使用 [uni全局挂载](/guide/advanced/uni-ext.html) 导致无法云打包的问题。
++ 修复因使用 [uni全局挂载](/guide/advanced/uni-ext.html) 导致编译 `web` 反复热刷新的问题。
++ 修复因首次使用 [uni全局挂载](/guide/advanced/uni-ext.html) 需要编译两次的问题。
++ 优化其他已知问题。
+:::
+
+::: timeline 1.2.1 (2024-09-26)
++ 启动拦截场景新增支持 `beforeEnter` 守卫。
++ 优化其他已知问题。
+:::
+
 ::: timeline 1.2.0 (2024-09-13)
 + 修复同一路由多次跳转时，路由参数未更新的问题。
 + `createRouter` 方法新增 `useAddInterceptor` 原生拦截器配置参数，用来支持 [uni原生页面跳转](https://doc.dcloud.net.cn/uni-app-x/api/navigator.html) 跳转的拦截兼容。具体参数说明如下：

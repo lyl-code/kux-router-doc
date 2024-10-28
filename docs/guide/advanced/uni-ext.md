@@ -7,13 +7,20 @@
 import { defineConfig } from 'vite';
 import uni from "@dcloudio/vite-plugin-uni";
 import generateUniext from './uni_modules/kux-router/vite/vite-plugin-generate-uniext' // [!code ++]
-import pagesJsonPlugin from './uni_modules/kux-router/vite/vite-plugin-kux-pages-json.ts';
+import autopages from './uni_modules/kux-autopages';
+import kuxgen from './uni_modules/kux-router/vite/vite-plugin-kux-gen';
 
 export default defineConfig({
 	plugins: [
 		generateUniext, // [!code ++]
 		uni(),
-		pagesJsonPlugin
+        autopages({
+          pagesJsonMappingFile: 'router/pages.uts',
+        }),
+        kuxgen({
+          pagesJsonMappingFile: 'router/pages.uts',
+          routerFile: 'router/router.uts'
+        })
 	],
 })
 ```
@@ -28,5 +35,6 @@ export default defineConfig({
 + `v1.1.5` 及以上版本支持。
 + 上面的 `generateUniext` 为新增的导入模块。模块初始化时会在 `uni_modules` 目录下面生成 `uni-kuxrouter` 插件，该插件第一次生成时需要编译两次才能正常使用。该插件存在时按照正常的编译一次即可。
 + 介意上面第一次需要编译两次的谨慎使用 `uni` 全局挂载方式。
++ `v1.2.2` 及以上版本修复了需要编译两次的问题。
 
 :::
