@@ -11,6 +11,13 @@
   > + 该版本由于刚开通小程序环境，所以可能使用过程会有异常情况，不建议作为生产项目使用。
   >
   > + 小程序环境 `uni全局挂载` 使用方式请看 [文档](/guide/advanced/uni-ext.html#小程序环境使用事项)
++ 优化类型导出，以更好的适配后续版本迭代，升级后页面中所有类型都统一从插件根目录导入，例如：
+  ```ts
+  // 升级前
+  import { RouterOptions, UseAddInterceptorOptions } from '@/uni_modules/kux-router/utssdk/interface';
+  // 升级后
+  import { RouterOptions, UseAddInterceptorOptions } from '@/uni_modules/kux-router';
+  ```
 :::
 
 ::: timeline 1.2.3 (2024-11-18)
