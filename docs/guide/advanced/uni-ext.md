@@ -38,3 +38,37 @@ export default defineConfig({
 + `v1.2.2` 及以上版本修复了需要编译两次的问题。
 
 :::
+
+## 小程序环境使用事项 <Badge text="v1.2.4+" />
+uni编译器 `4.35` 及以上版本开始支持小程序，`main.uts` 写法如下：
+
+```ts
+import App from './App.uvue'
+
+import { createSSRApp } from 'vue'
+import { createRouter } from '@/uni_modules/kux-router';
+import { RouterOptions, UseAddInterceptorOptions } from '@/uni_modules/kux-router';
+import routes from './router2/router';
+// #ifdef MP // [!code ++]
+import { createKuxRouter, useKuxRouter, useKuxRoute } from '@/uni_modules/uni-kuxrouter'; // [!code ++]
+// #endif // [!code ++]
+
+export function createApp() {
+	const app = createSSRApp(App)
+	// #ifdef MP // [!code ++]
+	uni.createKuxRouter = createKuxRouter; // [!code ++]
+	uni.useKuxRouter = useKuxRouter; // [!code ++]
+	uni.useKuxRoute = useKuxRoute; // [!code ++]
+	// #endif // [!code ++]
+	const router = uni.createKuxRouter({
+		routes: routes,
+		useAddInterceptor: {
+			switchTab: true,
+		} as UseAddInterceptorOptions
+	} as RouterOptions)
+	app.provide('router', router);
+	return {
+		app
+	}
+}
+```
