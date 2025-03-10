@@ -4,13 +4,14 @@
 
 ## 可调用函数
 
-+ ErrorListener(`error`): `void`
++ ErrorListener(`ErrorListenerOptions`): `void`
 
 ### 参数
 
-| 名称 | 类型 |
-| --- | --- |
-| error | `any` |
+| 名称    | 类型                            | 说明 |
+|-------|-------------------------------|-----|
+| error | `any`                         | 捕获的错误对象。
+| type  | [`NavigationFailureType`](./NavigationFailureType) | 导航失败类型。
 
 ### 返回值
 
@@ -23,4 +24,12 @@
  * `onError` 回调定义
  */
 export type ErrorListener = (error: any) => void
+
+/**
+ * `onError` 守卫回调定义
+ */
+export type ErrorListenerOptions = {
+    error?: any
+    failure?: NavigationFailure
+}
 ```
