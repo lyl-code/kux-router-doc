@@ -72,3 +72,7 @@ export function createApp() {
 	}
 }
 ```
+
+::: warning 注意
++ 测试发现uni编译器 `4.66` 及以上版本已经支持 [uni ext api](https://uniapp.dcloud.net.cn/api/extapi.html)，所以上面对小程序的特殊处理可以删除了。
+:::
